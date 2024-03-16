@@ -9,15 +9,16 @@ import {getDataFromAPI} from "./server/server";
     const myChart=myData?.ac.slice(0,10).map(data=>{
         return { lat: data.lat.toString().substring(0,data.lat.toString().indexOf('.')), long: data.lon.toString().substring(0,data.lon.toString().indexOf('.')) };
     })
+
     new Chart(
         document.getElementById('lineChart'),
         {
             type: 'line',
             data: {
-                labels: myChart.map(row => row.lat),
+                labels:myChart.map(row => row.lat),
                 datasets: [
                     {
-                        label: 'Acquisitions by year',
+                        label: 'Plain locations on line chart',
                         data: myChart.map(row => row.long)
                     }
                 ]
@@ -32,7 +33,7 @@ import {getDataFromAPI} from "./server/server";
                 labels: myChart.map(row => row.lat),
                 datasets: [
                     {
-                        label: 'Acquisitions by year',
+                        label: 'Plain locations on scatter chart',
                         data: myChart.map(row => row.long)
                     }
                 ]
@@ -47,7 +48,7 @@ import {getDataFromAPI} from "./server/server";
                 labels: myChart.map(row => row.lat),
                 datasets: [
                     {
-                        label: 'Acquisitions by year',
+                        label: 'Plain locations on radar chart',
                         data: myChart.map(row => row.long)
                     }
                 ]
